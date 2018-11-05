@@ -78,6 +78,7 @@ class Wp_Embed_Quran {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->define_shortcodes();
 
 	}
 
@@ -172,6 +173,20 @@ class Wp_Embed_Quran {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Register all shortcodes of the plugin.
+	 *
+	 * @since    1.0.1
+	 * @access   private
+	 */
+	private function define_shortcodes() {
+
+		$plugin_public = new Wp_Embed_Quran_Public( $this->get_plugin_name(), $this->get_version() );
+
+		$this->loader->add_shortcode( 'quran', $plugin_public, 'quran_shortcode' );
 
 	}
 

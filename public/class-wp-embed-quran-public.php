@@ -54,6 +54,27 @@ class Wp_Embed_Quran_Public {
 
 	}
 
+	private function process_attributes($atts) {
+		
+		return array("chapter"=>20, "verses"=>12);
+	}
+
+	/**
+	 * [quran surah="12" ayah="1"]
+	 * [quran surah="12" ayah="1-10"]
+	 * [quran surat="12" ayat="1"]
+	 * [quran chapter="12" verse="1"]
+	 * [quran 12:78]
+	 * [qs 12:78]
+	 */
+	public function quran_shortcode( $atts ){
+		// $attr = $this->process_attributes($atts);
+
+		// http://api.alquran.cloud/ayah/2:255
+
+		return "<div class='wpEmbedQuran' data-atts='".$atts[0]."' data-chapter='' data-verses=''>[Quran ".$atts[0]."]</div>";
+	}
+
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
