@@ -29,4 +29,19 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	$(function() {
+		let divs = $(".wpEmbedQuran");
+		divs.each(function(id, div){
+			$.ajax({
+				url: "http://api.alquran.cloud/ayah/"+div.dataset.chapter+":"+div.dataset.verses,
+			})
+			.done(function( res ) {
+				setTimeout(function(){
+					div.innerHTML = res.data.text;
+				}, 5000)
+			});
+		})
+		console.log(divs)
+	});
+
 })( jQuery );

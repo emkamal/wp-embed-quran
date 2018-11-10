@@ -187,6 +187,7 @@ class Wp_Embed_Quran {
 		$plugin_public = new Wp_Embed_Quran_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_shortcode( 'quran', $plugin_public, 'quran_shortcode' );
+		$this->loader->add_shortcode( 'qs', $plugin_public, 'quran_shortcode' );
 
 	}
 
